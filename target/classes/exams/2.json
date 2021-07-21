@@ -1,0 +1,25 @@
+{
+  "exam": {
+    "id": 2,
+    "name": "JAVA pagrindai",
+    "type": "testas"
+  },
+  "answers": [
+    {
+      "id": 1,
+      "answer": "a"
+    },
+    {
+      "id": 2,
+      "answer": "b"
+    },
+    {
+      "id": 3,
+      "answer": "a"
+    },
+    {
+      "id": 4,
+      "answer": "b"
+    }
+  ]
+}

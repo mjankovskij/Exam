@@ -1,0 +1,25 @@
+[ {
+  "exam" : {
+    "id" : 2,
+    "name" : "JAVA pagrindai",
+    "type" : "testas"
+  },
+  "studentsResults" : [ ]
+}, {
+  "exam" : {
+    "id" : 1,
+    "name" : "OOP pagrindai",
+    "type" : "testas"
+  },
+  "studentsResults" : [ {
+    "id" : 1,
+    "firstname" : "Vardenis",
+    "lastname" : "Pavardenis",
+    "result" : 7
+  }, {
+    "id" : 2,
+    "firstname" : "Vard",
+    "lastname" : "Pavard",
+    "result" : 10
+  } ]
+} ]
