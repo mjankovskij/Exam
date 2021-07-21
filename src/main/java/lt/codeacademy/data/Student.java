@@ -1,15 +1,20 @@
 package lt.codeacademy.data;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lt.codeacademy.services.ExamService;
+
+import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.LocalDateTime;
 
 public class Student {
     private int id;
     private String firstname;
     private String lastname;
     private int result;
+    private final String datetime = LocalDateTime.now().toString();
 
     public Student() {
-        super();
     }
 
     public Student(int id, String firstname, String lastname, int result) {
@@ -39,4 +44,7 @@ public class Student {
         return result;
     }
 
+    public String getDatetime() {
+        return datetime;
+    }
 }

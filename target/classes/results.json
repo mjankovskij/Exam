@@ -1,12 +1,5 @@
 [ {
   "exam" : {
-    "id" : 2,
-    "name" : "JAVA pagrindai",
-    "type" : "testas"
-  },
-  "studentsResults" : [ ]
-}, {
-  "exam" : {
     "id" : 1,
     "name" : "OOP pagrindai",
     "type" : "testas"
@@ -15,11 +8,13 @@
     "id" : 1,
     "firstname" : "Vardenis",
     "lastname" : "Pavardenis",
-    "result" : 7
+    "result" : 7,
+    "datetime" : "2021-07-21T19:29:52.554749"
   }, {
     "id" : 2,
     "firstname" : "Vard",
     "lastname" : "Pavard",
-    "result" : 10
+    "result" : 10,
+    "datetime" : "2021-07-21T19:29:52.563750400"
   } ]
 } ]
