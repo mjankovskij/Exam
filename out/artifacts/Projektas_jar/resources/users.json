@@ -8,39 +8,4 @@
   "id" : 1,
   "password" : "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
   "role" : 0
-}, {
-  "username" : "vardenis",
-  "id" : 2,
-  "password" : "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
-  "role" : 0
-}, {
-  "username" : "ma",
-  "id" : 4,
-  "password" : "3702fc1866630796050c50e9c829bd32fde7cc4c883f28e3e4ca430307c485b0",
-  "role" : 0
-}, {
-  "username" : "",
-  "id" : 5,
-  "password" : "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-  "role" : 0
-}, {
-  "username" : "markas",
-  "id" : 6,
-  "password" : "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
-  "role" : 0
-}, {
-  "username" : "markas2",
-  "id" : 7,
-  "password" : "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
-  "role" : 0
-}, {
-  "username" : "masdsa",
-  "id" : 8,
-  "password" : "688787d8ff144c502c7f5cffaafe2cc588d86079f9de88304c26b0cb99ce91c6",
-  "role" : 0
-}, {
-  "username" : "asddas",
-  "id" : 9,
-  "password" : "67882221bcd13adee516e5a7e3cecaff050774c3498417d7fa21494bae82192d",
-  "role" : 0
 } ]

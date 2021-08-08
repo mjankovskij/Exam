@@ -1,7 +1,12 @@
 {
+  "student": {
+    "id": 3,
+    "firstname": "Rimas",
+    "lastname": "Pavardauskas"
+  },
   "exam": {
     "id": 1,
-    "name": "OOP pagrindai",
+    "name": "JAVA pagrindai",
     "type": "testas"
   },
   "answers": [
@@ -11,15 +16,15 @@
     },
     {
       "id": 2,
-      "answer": "a"
+      "answer": "b"
     },
     {
       "id": 3,
-      "answer": "d"
+      "answer": "c"
     },
     {
       "id": 4,
-      "answer": "c"
+      "answer": "d"
     }
   ]
 }
