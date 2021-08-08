@@ -19,8 +19,42 @@ public class AuthService {
         this.usersFile = usersFile;
     }
 
+    public User menu() {
+        Scanner sc = new Scanner(System.in);
+        while (true) {
+            System.out.println(" ___________________________________");
+            System.out.println("| 1 - Prisijungimas                 |");
+            System.out.println("| 2 - Registracija                  |");
+            System.out.println("| 3 - Išeiti                        |");
+            System.out.println("|___________________________________|");
 
-    public List<User> getUsers() throws IOException {
+            String select = sc.nextLine();
+            switch (select) {
+                case "1" -> {
+                    while (true) {
+                        try {
+                            return login(sc);
+                        } catch (AccessDeniedException e) {
+                            System.out.println("Neteisingi prisijungimo duomenys.");
+                        } catch (Exception e) {
+                            System.out.println("Nepavyko prisijungti.");
+                        }
+                    }
+                }
+                case "2" -> {
+                    registration(sc);
+                }
+                case "3" -> {
+                    return null;
+                }
+                default -> {
+                    System.out.println("Pasirinkite veiksmą.");
+                }
+            }
+        }
+    }
+
+    public List<User> getUsers() {
         List<User> usersList = new ArrayList<>();
         try {
             usersList = mapper.readValue(usersFile, new TypeReference<>() {
@@ -31,23 +65,29 @@ public class AuthService {
         return usersList;
     }
 
-
-    public void registration(Scanner sc) throws IOException {
-        System.out.println("*** User Registration ***");
-        String userName = getUniqueUserName(sc);
+    public void registration(Scanner sc) {
+        System.out.println("*** Registracija ***");
+        int id = getUsers().size() + 1;
+        String userName = getCorrectUserName(sc);
         String password = getCorrectPassword(sc);
 
         List<User> usersList = getUsers();
-        usersList.add(new User(userName, password));
-        mapper.writeValue(usersFile, usersList);
-        System.out.println("User successfully registered");
+        usersList.add(new User(id, userName, password));
+        System.out.println("-----------------------------------");
+        try {
+            mapper.writeValue(usersFile, usersList);
+            System.out.println("Jus sekmingai užsiregistravote.");
+        } catch (IOException e) {
+            System.out.println("Nepavyko įrašyti varototjo į duomenų bazę.");
+        }
+
     }
 
-    public User login(Scanner sc) throws IOException {
-        System.out.println("*** User login ***");
-        System.out.println("Insert username");
+    public User login(Scanner sc) throws AccessDeniedException {
+        System.out.println("*** Prisijungimas ***");
+        System.out.println("Įveskite slapyvardį:");
         String username = sc.nextLine();
-        System.out.println("Insert password");
+        System.out.println("Įveskite slaptažodį:");
         String password = sc.nextLine();
 
         User user = getUsers().stream()
@@ -56,7 +96,12 @@ public class AuthService {
                 .get();
 
         if (user.getPassword() != null && user.getPassword().equals(DigestUtils.sha256Hex(password))) {
-            System.out.println("User login successfully");
+            System.out.println("-----------------------------------");
+            System.out.println("Sveiki, " + user.getUsername() + ".");
+            System.out.println(user.getRole() > 0
+                    ? "Jus prisijungėte kaip mokytojas."
+                    : "Jus prisijungėte kaip studentas."
+            );
             return user;
         } else {
             throw new AccessDeniedException("");
@@ -66,32 +111,53 @@ public class AuthService {
     private String getCorrectPassword(Scanner sc) {
         String password;
         String repeatPassword;
-        String text = "";
-        do {
-            System.out.println(text);
-            System.out.println("Please insert password");
+        while (true) {
+            System.out.println("Įveskite slaptažodį:");
             password = sc.nextLine();
-            System.out.println("Repeat you password");
+            try {
+                isPasswordValid(password);
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+                continue;
+            }
+            System.out.println("Pakartokite slaptažodį:");
             repeatPassword = sc.nextLine();
-            text = "Passwords not equals";
-        } while (!password.equals(repeatPassword));
-
-        return DigestUtils.sha256Hex(password);
+            if (!password.equals(repeatPassword)) {
+                System.out.println("Slaptažodžiai nesutampa.");
+                continue;
+            }
+            return DigestUtils.sha256Hex(password);
+        }
     }
 
-    private String getUniqueUserName(Scanner sc) throws IOException {
+    private String getCorrectUserName(Scanner sc) {
         String userName;
-        String text = "Please insert username";
-        do {
-            System.out.println(text);
+        while (true) {
+            System.out.println("Įveskite slapyvardį:");
             userName = sc.nextLine();
-            text = "This name exist please insert another one";
-        } while (isUserUnique(userName));
-        return userName;
+            try {
+                isUsernameValid(userName);
+                return userName;
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
     }
 
-    private Boolean isUserUnique(final String username) throws IOException {
-        return getUsers().stream().anyMatch(o -> o.getUsername().equals(username));
+    private void isUsernameValid(final String username) {
+        int minLength = 8;
+        if (getUsers().stream().anyMatch(o -> o.getUsername().equals(username))) {
+            throw new IllegalArgumentException("Toks slapyvardis jau registruotas.");
+        }
+        if (username.length() < minLength) {
+            throw new IllegalArgumentException("Slapyvardį turi sudaryti bent " + minLength + " simboliai.");
+        }
     }
 
+    private void isPasswordValid(final String password) {
+        int minLength = 5;
+        if (password.length() < minLength) {
+            throw new IllegalArgumentException("Slaptažodį turi sudaryti bent " + minLength + " simboliai.");
+        }
+    }
 }

@@ -29,4 +29,13 @@ public class Exam {
     public String getType() {
         return type;
     }
+
+    @Override
+    public String toString() {
+        return "Exam{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", type='" + type + '\'' +
+                '}';
+    }
 }

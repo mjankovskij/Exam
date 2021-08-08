@@ -1,25 +1,32 @@
 {
-  "exam": {
-    "id": 1,
-    "name": "OOP pagrindai",
-    "type": "testas"
+  "exam" : {
+    "id" : 1,
+    "name" : "OOP pagrindai",
+    "type" : "testas"
   },
-  "answers": [
-    {
-      "id": 1,
-      "answer": "a"
-    },
-    {
-      "id": 2,
-      "answer": "a"
-    },
-    {
-      "id": 3,
-      "answer": "d"
-    },
-    {
-      "id": 4,
-      "answer": "c"
-    }
-  ]
+  "answers" : [ {
+    "id" : 1,
+    "answer" : "a"
+  }, {
+    "id" : 2,
+    "answer" : "a"
+  }, {
+    "id" : 3,
+    "answer" : "d"
+  }, {
+    "id" : 4,
+    "answer" : "c"
+  }, {
+    "id" : 5,
+    "answer" : "c"
+  }, {
+    "id" : 6,
+    "answer" : "a"
+  }, {
+    "id" : 7,
+    "answer" : "4"
+  }, {
+    "id" : 8,
+    "answer" : "a"
+  } ]
 }

@@ -6,15 +6,15 @@
   },
   "studentsResults" : [ {
     "id" : 1,
-    "firstname" : "Vardenis",
-    "lastname" : "Pavardenis",
-    "result" : 7,
-    "datetime" : "2021-07-21T19:29:52.554749"
+    "firstname" : "Marek",
+    "lastname" : "Jankovskij",
+    "result" : 3,
+    "datetime" : "2021-08-08 11:39:50"
   }, {
     "id" : 2,
-    "firstname" : "Vard",
-    "lastname" : "Pavard",
-    "result" : 10,
-    "datetime" : "2021-07-21T19:29:52.563750400"
+    "firstname" : "Vardenis",
+    "lastname" : "Pavardenis",
+    "result" : 5,
+    "datetime" : "2021-08-08 11:40:08"
   } ]
 } ]

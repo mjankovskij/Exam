@@ -31,11 +31,11 @@ public class ExamService {
         return answers;
     }
 
-    public int validateExam(List<Answer> studentArray) {
+    public int validateExam(List<Answer> answersArray) {
         int correctAnswers = 0;
 
-        for (Answer studentAnswer : studentArray) {
-            if (answers.get(studentAnswer.getId() - 1).getAnswer() == studentAnswer.getAnswer()) {
+        for (Answer answer : answersArray) {
+            if (answers.get(answer.getId() - 1).getAnswer() == answer.getAnswer()) {
                 correctAnswers++;
             }
         }
@@ -43,20 +43,4 @@ public class ExamService {
         return (int) (10f / answers.size() * correctAnswers);
     }
 
-    public List<Student> validateAll(ObjectMapper mapper, String answersDir) throws IOException {
-        List<Student> studentList = new ArrayList<>();
-        for (String answerFileName : Objects.requireNonNull(new File(answersDir).list())) {
-            File answerFile = new File(answersDir + "/" + answerFileName);
-
-            StudentService studentService = mapper.readValue(answerFile, StudentService.class);
-
-            int res = validateExam(studentService.getAnswers());
-            studentService.getStudent().setResult(res);
-
-            studentList.add(studentService.getStudent());
-
-            System.out.println("Student " + studentService.getStudent().getFirstname() + ", grade: " + res);
-        }
-        return studentList;
-    }
 }
