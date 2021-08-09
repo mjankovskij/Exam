@@ -5,19 +5,18 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class FileService {
-        private static final String RESOURCES_PATH = "resources/";
-//    private static final String RESOURCES_PATH = "src/main/resources/";
 
     public File getFile(String fileName) throws FileNotFoundException {
-        File file = new java.io.File(RESOURCES_PATH + fileName);
+        File file = new java.io.File(fileName);
         if (!file.exists()) {
-            throw new FileNotFoundException("File not found.");
+            System.out.println("---");
+            throw new FileNotFoundException("Failas nerastas.");
         }
         return file;
     }
 
     public File getCreateFile(String fileName) {
-        File file = new File(RESOURCES_PATH + fileName);
+        File file = new File(fileName);
         if (!file.exists()) {
             try {
                 file.createNewFile();
@@ -27,7 +26,4 @@ public class FileService {
         return file;
     }
 
-    public String getAnswersDir(String dir) {
-        return RESOURCES_PATH + "/answers/" + dir;
-    }
 }

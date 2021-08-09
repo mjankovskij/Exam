@@ -53,7 +53,7 @@ public class MenuService {
                     enterResultFile(mapper, sc, fileService, resultService, examService);
                 }
                 case "3" -> {
-                    printAllResults(mapper, resultService, fileService.getCreateFile("results.json"));
+                    printAllResults(mapper, resultService, fileService.getCreateFile("resources/results.json"));
                 }
                 case "4" -> {
                     addAnswer(mapper, sc, examService);
@@ -113,17 +113,20 @@ public class MenuService {
         String inputExam;
         ExamService examService;
         while (true) {
+            System.out.println("--------------------------------");
             System.out.println("Nurdykite egzamino failą:");
-            inputExam = "exams/" + sc.nextLine();
+            inputExam = sc.nextLine();
             try {
                 examFile = fileService.getFile(inputExam);
                 examService = mapper.readValue(examFile, ExamService.class);
                 this.examFile = examFile;
                 break;
             } catch (IOException e) {
+                System.out.println("---");
                 System.out.println("Egzaminas nerastas.");
             }
         }
+        System.out.println("--------------------------------");
         System.out.println("Pasirinktas egzaminas: " + examService.getExam().getName());
         return examService;
     }
@@ -132,8 +135,9 @@ public class MenuService {
         File yourFile;
         String inputYour;
         while (true) {
+            System.out.println("--------------------------------");
             System.out.println("Nurdykite sprendimo failą:");
-            inputYour = "answers/" + sc.nextLine();
+            inputYour = sc.nextLine();
             try {
                 yourFile = fileService.getFile(inputYour);
                 StudentService studentService = mapper.readValue(yourFile, StudentService.class);
@@ -143,10 +147,11 @@ public class MenuService {
                 resultService.validateResult(mapper, fileService, examService, studentService);
                 break;
             } catch (FileNotFoundException e) {
-                System.out.println("Failas nerastas.");
+                System.out.println("---");
+                System.out.println("Sprendimų failas nerastas.");
             } catch (Exception e) {
-                System.out.println("Failas netinkamo formato.");
-                break;
+                System.out.println("---");
+                System.out.println("Sprendimų failas netinkamo formato.");
             }
         }
     }
@@ -154,6 +159,7 @@ public class MenuService {
     private void enterResultsDir(ObjectMapper mapper, Scanner sc, FileService fileService, ResultService resultService, ExamService examService) {
         String inputYour;
         while (true) {
+            System.out.println("--------------------------------");
             System.out.println("Nurdykite sprendimų direktoriją:");
             inputYour = sc.nextLine();
 
@@ -161,6 +167,7 @@ public class MenuService {
                 resultService.validateAllResults(mapper, fileService, inputYour, examService);
                 break;
             } catch (Exception e) {
+                System.out.println("---");
                 System.out.println("Sprendimų dirketorija nerasta.");
             }
         }

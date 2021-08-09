@@ -12,8 +12,8 @@ import java.util.*;
 public class ResultService {
 
     public void validateAllResults(ObjectMapper mapper, FileService fileService, String answersDir, ExamService examService) throws IOException {
-        for (String answerFileName : Objects.requireNonNull(new File(fileService.getAnswersDir(answersDir)).list())) {
-            File answerFile = new File(fileService.getAnswersDir(answersDir) + "/" + answerFileName);
+        for (String answerFileName : Objects.requireNonNull(new File(answersDir).list())) {
+            File answerFile = new File(answersDir + "/" + answerFileName);
             StudentService studentService = mapper.readValue(answerFile, StudentService.class);
 
             validateResult(mapper, fileService, examService, studentService);
@@ -21,7 +21,7 @@ public class ResultService {
     }
 
     public void validateResult(ObjectMapper mapper, FileService fileService, ExamService examService, StudentService studentService) {
-        File resultsFile = fileService.getCreateFile("results.json");
+        File resultsFile = fileService.getCreateFile("resources/results.json");
         String firstname = studentService.getStudent().getFirstname();
         String lastname = studentService.getStudent().getLastname();
 
@@ -86,6 +86,7 @@ public class ResultService {
         try {
             mapper.writeValue(resultsFile, resultsList);
         } catch (IOException e) {
+            System.out.println("---");
             System.out.println("Nepavyko įrašyti rezultatų.");
         }
     }

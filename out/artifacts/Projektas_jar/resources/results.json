@@ -9,13 +9,13 @@
     "firstname" : "Marek",
     "lastname" : "Jankovskij",
     "result" : 7,
-    "datetime" : "2021-08-08 12:03:16"
+    "datetime" : "2021-08-09 18:34:35"
   }, {
     "id" : 2,
     "firstname" : "Vardenis",
     "lastname" : "Pavardenis",
     "result" : 10,
-    "datetime" : "2021-08-08 12:03:16"
+    "datetime" : "2021-08-09 18:34:46"
   } ]
 }, {
   "exam" : {
@@ -28,13 +28,13 @@
     "firstname" : "Marek",
     "lastname" : "Jankovskij",
     "result" : 10,
-    "datetime" : "2021-08-08 12:03:49"
+    "datetime" : "2021-08-09 18:39:26"
   }, {
     "id" : 2,
     "firstname" : "Vardenis",
     "lastname" : "Pavardenis",
     "result" : 5,
-    "datetime" : "2021-08-08 12:03:49"
+    "datetime" : "2021-07-08 12:03:49"
   }, {
     "id" : 3,
     "firstname" : "Rimas",

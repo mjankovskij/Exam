@@ -76,8 +76,10 @@ public class AuthService {
         System.out.println("-----------------------------------");
         try {
             mapper.writeValue(usersFile, usersList);
+            System.out.println("---");
             System.out.println("Jus sekmingai užsiregistravote.");
         } catch (IOException e) {
+            System.out.println("---");
             System.out.println("Nepavyko įrašyti varototjo į duomenų bazę.");
         }
 
@@ -123,6 +125,7 @@ public class AuthService {
             System.out.println("Pakartokite slaptažodį:");
             repeatPassword = sc.nextLine();
             if (!password.equals(repeatPassword)) {
+                System.out.println("---");
                 System.out.println("Slaptažodžiai nesutampa.");
                 continue;
             }
@@ -139,6 +142,7 @@ public class AuthService {
                 isUsernameValid(userName);
                 return userName;
             } catch (IllegalArgumentException e) {
+                System.out.println("---");
                 System.out.println(e.getMessage());
             }
         }
