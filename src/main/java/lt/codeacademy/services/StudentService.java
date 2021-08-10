@@ -12,7 +12,7 @@ public class StudentService extends ExamService {
     public StudentService() {
     }
 
-    public StudentService(Student student, Exam exam, List<Answer> answers) {
+    public StudentService(Student student, Exam exam, List<Answer<Integer, String>> answers) {
         super(exam, answers);
         this.student = student;
     }

@@ -1,22 +1,27 @@
 package lt.codeacademy.data;
 
-public class Answer {
-    private int id;
-    private char answer;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lt.codeacademy.interfaces.AnswerInterface;
+
+public class Answer<K, V> implements AnswerInterface<K, V> {
+    private K k;
+    private V v;
 
     public Answer() {
     }
 
-    public Answer(int id, char answer) {
-        this.id = id;
-        this.answer = answer;
+    @JsonCreator
+    public Answer(@JsonProperty("key") K k, @JsonProperty("value") V v) {
+        this.k = k;
+        this.v = v;
     }
 
-    public int getId() {
-        return id;
+    public K getKey() {
+        return k;
     }
 
-    public char getAnswer() {
-        return answer;
+    public V getValue() {
+        return v;
     }
 }

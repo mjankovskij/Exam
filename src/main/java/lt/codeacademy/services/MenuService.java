@@ -113,7 +113,6 @@ public class MenuService {
         String inputExam;
         ExamService examService;
         while (true) {
-            System.out.println("--------------------------------");
             System.out.println("Nurdykite egzamino failą:");
             inputExam = sc.nextLine();
             try {
@@ -122,6 +121,7 @@ public class MenuService {
                 this.examFile = examFile;
                 break;
             } catch (IOException e) {
+                e.printStackTrace();
                 System.out.println("---");
                 System.out.println("Egzaminas nerastas.");
             }
@@ -160,7 +160,7 @@ public class MenuService {
         String inputYour;
         while (true) {
             System.out.println("--------------------------------");
-            System.out.println("Nurdykite sprendimų direktoriją:");
+            System.out.println("Nurodykite sprendimų direktoriją:");
             inputYour = sc.nextLine();
 
             try {

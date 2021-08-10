@@ -1,24 +1,18 @@
 package lt.codeacademy.services;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lt.codeacademy.data.Answer;
 import lt.codeacademy.data.Exam;
-import lt.codeacademy.data.Student;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class ExamService {
     private Exam exam;
-    private List<Answer> answers;
+    private List<Answer<Integer, String>> answers;
 
     public ExamService() {
     }
 
-    public ExamService(Exam exam, List<Answer> answers) {
+    public ExamService(Exam exam, List<Answer<Integer, String>> answers) {
         this.exam = exam;
         this.answers = answers;
     }
@@ -27,15 +21,15 @@ public class ExamService {
         return exam;
     }
 
-    public List<Answer> getAnswers() {
+    public List<Answer<Integer, String>> getAnswers() {
         return answers;
     }
 
-    public int validateExam(List<Answer> answersArray) {
+    public int validateExam(List<Answer<Integer, String>> answersArray) {
         int correctAnswers = 0;
 
-        for (Answer answer : answersArray) {
-            if (answers.get(answer.getId() - 1).getAnswer() == answer.getAnswer()) {
+        for (Answer<Integer, String> answer : answersArray) {
+            if (answers.get(answer.getKey() - 1).getValue().equals(answer.getValue())) {
                 correctAnswers++;
             }
         }

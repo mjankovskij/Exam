@@ -11,20 +11,20 @@
   },
   "answers": [
     {
-      "id": 1,
-      "answer": "a"
+      "key": 1,
+      "value": "a"
     },
     {
-      "id": 2,
-      "answer": "b"
+      "key": 2,
+      "value": "b"
     },
     {
-      "id": 3,
-      "answer": "c"
+      "key": 3,
+      "value": "c"
     },
     {
-      "id": 4,
-      "answer": "d"
+      "key": 4,
+      "value": "d"
     }
   ]
 }

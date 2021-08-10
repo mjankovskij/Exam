@@ -98,7 +98,6 @@ public class AuthService {
                 .get();
 
         if (user.getPassword() != null && user.getPassword().equals(DigestUtils.sha256Hex(password))) {
-            System.out.println("-----------------------------------");
             System.out.println("Sveiki, " + user.getUsername() + ".");
             System.out.println(user.getRole() > 0
                     ? "Jus prisijungėte kaip mokytojas."
@@ -149,7 +148,7 @@ public class AuthService {
     }
 
     private void isUsernameValid(final String username) {
-        int minLength = 8;
+        int minLength = 5;
         if (getUsers().stream().anyMatch(o -> o.getUsername().equals(username))) {
             throw new IllegalArgumentException("Toks slapyvardis jau registruotas.");
         }
@@ -159,7 +158,7 @@ public class AuthService {
     }
 
     private void isPasswordValid(final String password) {
-        int minLength = 5;
+        int minLength = 8;
         if (password.length() < minLength) {
             throw new IllegalArgumentException("Slaptažodį turi sudaryti bent " + minLength + " simboliai.");
         }
