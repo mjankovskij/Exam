@@ -1,0 +1,26 @@
+[ {
+  "exam" : {
+    "id" : 1,
+    "name" : "OOP pagrindai",
+    "type" : "testas"
+  },
+  "studentsResults" : [ {
+    "id" : 1,
+    "firstname" : "Marek",
+    "lastname" : "Jankovskij",
+    "result" : 7,
+    "datetime" : "2021-08-10 21:01:06"
+  }, {
+    "id" : 2,
+    "firstname" : "Vardenis",
+    "lastname" : "Pavardenis",
+    "result" : 10,
+    "datetime" : "2021-08-10 21:01:06"
+  }, {
+    "id" : 3,
+    "firstname" : "Rimas",
+    "lastname" : "Pavardauskas",
+    "result" : 2,
+    "datetime" : "2021-08-10 21:01:30"
+  } ]
+} ]
