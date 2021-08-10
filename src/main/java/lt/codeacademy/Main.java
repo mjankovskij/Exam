@@ -14,7 +14,6 @@ public class Main {
         ObjectMapper mapper = new ObjectMapper();
         mapper.enable(SerializationFeature.INDENT_OUTPUT);
 
-        mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
         FileService fileService = new FileService();
         File usersFile = fileService.getCreateFile("resources/users.json");
 
