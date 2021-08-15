@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lt.codeacademy.data.Result;
 import lt.codeacademy.data.Student;
 
+import javax.crypto.IllegalBlockSizeException;
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
@@ -51,25 +52,29 @@ public class ResultService {
         }
 
         if (student.getDatetime() == null || DatetimeService.hasTimePassed(student.getDatetime())) {
-            int resultInt = examService.validateExam(studentService.getAnswers());
+            try {
+                int resultInt = examService.validateExam(studentService.getAnswers());
 
-            studentService.getStudent().setResult(resultInt);
-            result.setStudentsResults(studentList);
-            result.setExam(examService.getExam());
-            student.setDatetime(DatetimeService.getDateTimeString());
+                studentService.getStudent().setResult(resultInt);
+                result.setStudentsResults(studentList);
+                result.setExam(examService.getExam());
+                student.setDatetime(DatetimeService.getDateTimeString());
 
-            System.out.println(firstname + " "
-                    + lastname
-                    + ", įvertinimas: "
-                    + resultInt
-            );
-            saveResult(mapper, resultsFile, resultsList);
-        } else {
-            System.out.println(firstname + " "
-                    + lastname
-                    + ", neparaėjo 2h."
-            );
-        }
+                System.out.println(firstname + " "
+                        + lastname
+                        + ", įvertinimas: "
+                        + resultInt
+                );
+                saveResult(mapper, resultsFile, resultsList);
+            }catch(IllegalBlockSizeException e){
+                System.out.println(e.getMessage());
+            }
+            } else{
+                System.out.println(firstname + " "
+                        + lastname
+                        + ", neparaėjo 2h."
+                );
+            }
     }
 
     public List<Result> getResultsList(ObjectMapper mapper, File resultsFile) {

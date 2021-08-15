@@ -3,6 +3,7 @@ package lt.codeacademy.services;
 import lt.codeacademy.data.Answer;
 import lt.codeacademy.data.Exam;
 
+import javax.crypto.IllegalBlockSizeException;
 import java.util.List;
 
 public class ExamService {
@@ -25,7 +26,10 @@ public class ExamService {
         return answers;
     }
 
-    public int validateExam(List<Answer<Integer, String>> answersArray) {
+    public int validateExam(List<Answer<Integer, String>> answersArray) throws IllegalBlockSizeException {
+        if(answersArray.size()!=answers.size()){
+           throw new IllegalBlockSizeException("Studento atsakymų kiekis neatitinka egzamino.");
+        }
         int correctAnswers = 0;
 
         for (Answer<Integer, String> answer : answersArray) {

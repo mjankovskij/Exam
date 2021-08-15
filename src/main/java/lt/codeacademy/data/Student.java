@@ -19,6 +19,12 @@ public class Student {
     public Student() {
     }
 
+    public Student(int id, String firstname, String lastname) {
+        this.id = id;
+        this.firstname = firstname;
+        this.lastname = lastname;
+    }
+
     public Student(int id, String firstname, String lastname, int result, String datetime) {
         this.id = id;
         this.firstname = firstname;

@@ -60,7 +60,6 @@ public class AuthService {
             usersList = mapper.readValue(usersFile, new TypeReference<>() {
             });
         } catch (Exception ignored) {
-            // if there is no users, who cares, maybe it is used for registration.
         }
         return usersList;
     }
