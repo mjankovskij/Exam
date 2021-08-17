@@ -9,7 +9,7 @@
     "firstname" : "Marek",
     "lastname" : "Jankovskij",
     "result" : 10,
-    "datetime" : "2021-08-10 21:01:06"
+    "datetime" : "2021-08-17 18:20:51"
   }, {
     "id" : 2,
     "firstname" : "Vardenis",
@@ -28,18 +28,18 @@
     "firstname" : "Marek",
     "lastname" : "Jankovskij",
     "result" : 10,
-    "datetime" : "2021-08-10 21:02:25"
+    "datetime" : "2021-08-17 18:21:24"
   }, {
     "id" : 2,
     "firstname" : "Vardenis",
     "lastname" : "Pavardenis",
     "result" : 5,
-    "datetime" : "2021-08-10 21:02:25"
+    "datetime" : "2021-08-17 18:21:24"
   }, {
     "id" : 3,
     "firstname" : "Rimas",
     "lastname" : "Pavardauskas",
     "result" : 0,
-    "datetime" : "2021-08-10 21:02:25"
+    "datetime" : "2021-08-17 18:21:31"
   } ]
 } ]

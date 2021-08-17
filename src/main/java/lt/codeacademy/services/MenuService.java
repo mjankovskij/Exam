@@ -36,11 +36,11 @@ public class MenuService {
     private void teacherMenu(ObjectMapper mapper, Scanner sc, FileService fileService, ResultService resultService, ExamService examService) {
         while (true) {
             System.out.println(" ___________________________________");
-            System.out.println("| 1 - Tikrinti egzaminų katalogą ALL|");
-            System.out.println("| 2 - Tikrinti egzamino failą SINGLE|");
+            System.out.println("| 1 - Tikrinti egzaminu kataloga ALL|");
+            System.out.println("| 2 - Tikrinti egzamino faila SINGLE|");
             System.out.println("| 3 - Spausdinti visus atsakymus    |");
-            System.out.println("| 4 - Pridėti atsakymą              |");
-            System.out.println("| 5 - Išeiti                        |");
+            System.out.println("| 4 - Prideti atsakyma              |");
+            System.out.println("| 5 - Iseiti                        |");
             System.out.println("|___________________________________|");
 
             String select = sc.nextLine();
@@ -62,7 +62,7 @@ public class MenuService {
                     return;
                 }
                 default -> {
-                    System.out.println("Pasirinkite veiksmą.");
+                    System.out.println("Pasirinkite veiksma.");
                 }
             }
         }
@@ -84,16 +84,16 @@ public class MenuService {
     }
 
     private void addAnswer(ObjectMapper mapper, Scanner sc, ExamService examService) {
-        System.out.println("Egzamino " + examService.getExam().getName() + " atsakymo pridėjimas.");
+        System.out.println("Egzamino " + examService.getExam().getName() + " atsakymo pridejimas.");
         int examId = examService.getAnswers().size() + 1;
         char answerChar;
         while (true) {
-            System.out.println("Atsakymo nr.: " + examId + ", įveskite atsakymo varaintą(raidę):");
+            System.out.println("Atsakymo nr.: " + examId + ", iveskite atsakymo varainta(raide):");
             String select = sc.nextLine();
             if (select.length() > 1) {
-                System.out.println("Atsakymą turi sudaryti tik 1 raidė.");
+                System.out.println("Atsakyma turi sudaryti tik 1 raide.");
             } else if (Character.isDigit(select.charAt(0))) {
-                System.out.println("Atakymas turi būti raidė.");
+                System.out.println("Atakymas turi būti raide.");
             } else {
                 answerChar = select.charAt(0);
                 break;
@@ -102,9 +102,9 @@ public class MenuService {
         try {
             examService.getAnswers().add(new Answer(examId, answerChar));
             mapper.writeValue(examFile, examService);
-            System.out.println("Atsakymas pridėtas.");
+            System.out.println("Atsakymas pridetas.");
         } catch (IOException e) {
-            System.out.println("Nepavyko pridėti naujo atsakymo.");
+            System.out.println("Nepavyko prideti naujo atsakymo.");
         }
     }
 
@@ -113,7 +113,7 @@ public class MenuService {
         String inputExam;
         ExamService examService;
         while (true) {
-            System.out.println("Nurdykite egzamino failą:");
+            System.out.println("Nurdykite egzamino faila:");
             inputExam = sc.nextLine();
             try {
                 examFile = fileService.getFile(inputExam);
@@ -136,7 +136,7 @@ public class MenuService {
         String inputYour;
         while (true) {
             System.out.println("--------------------------------");
-            System.out.println("Nurdykite sprendimo failą:");
+            System.out.println("Nurdykite sprendimo faila:");
             inputYour = sc.nextLine();
             try {
                 yourFile = fileService.getFile(inputYour);
@@ -148,10 +148,10 @@ public class MenuService {
                 break;
             } catch (FileNotFoundException e) {
                 System.out.println("---");
-                System.out.println("Sprendimų failas nerastas.");
+                System.out.println("Sprendimu failas nerastas.");
             } catch (Exception e) {
                 System.out.println("---");
-                System.out.println("Sprendimų failas netinkamo formato.");
+                System.out.println("Sprendimu failas netinkamo formato.");
             }
         }
     }
@@ -160,7 +160,7 @@ public class MenuService {
         String inputYour;
         while (true) {
             System.out.println("--------------------------------");
-            System.out.println("Nurodykite sprendimų direktoriją:");
+            System.out.println("Nurodykite sprendimu direktoriją:");
             inputYour = sc.nextLine();
 
             try {

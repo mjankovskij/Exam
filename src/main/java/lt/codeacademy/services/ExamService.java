@@ -28,7 +28,7 @@ public class ExamService {
 
     public int validateExam(List<Answer<Integer, String>> answersArray) throws IllegalBlockSizeException {
         if(answersArray.size()!=answers.size()){
-           throw new IllegalBlockSizeException("Studento atsakymų kiekis neatitinka egzamino.");
+           throw new IllegalBlockSizeException("Studento atsakymu kiekis neatitinka egzamino.");
         }
         int correctAnswers = 0;
 

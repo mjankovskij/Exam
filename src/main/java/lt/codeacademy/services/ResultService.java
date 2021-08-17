@@ -62,7 +62,7 @@ public class ResultService {
 
                 System.out.println(firstname + " "
                         + lastname
-                        + ", įvertinimas: "
+                        + ", ivertinimas: "
                         + resultInt
                 );
                 saveResult(mapper, resultsFile, resultsList);
@@ -72,7 +72,7 @@ public class ResultService {
             } else{
                 System.out.println(firstname + " "
                         + lastname
-                        + ", neparaėjo 2h."
+                        + ", neparaejo 2h."
                 );
             }
     }

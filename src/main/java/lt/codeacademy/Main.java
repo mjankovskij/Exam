@@ -24,7 +24,7 @@ public class Main {
                 menuService.menu(mapper, fileService);
             }
         } finally {
-            System.out.println("Sėkmės! Lauksime sugrįžtant.");
+            System.out.println("Sekmes! Lauksime sugriztant.");
         }
     }
 }
