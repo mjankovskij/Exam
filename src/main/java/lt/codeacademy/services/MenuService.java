@@ -86,7 +86,7 @@ public class MenuService {
     private void addAnswer(ObjectMapper mapper, Scanner sc, ExamService examService) {
         System.out.println("Egzamino " + examService.getExam().getName() + " atsakymo pridejimas.");
         int examId = examService.getAnswers().size() + 1;
-        char answerChar;
+        String answerChar;
         while (true) {
             System.out.println("Atsakymo nr.: " + examId + ", iveskite atsakymo varainta(raide):");
             String select = sc.nextLine();
@@ -95,12 +95,12 @@ public class MenuService {
             } else if (Character.isDigit(select.charAt(0))) {
                 System.out.println("Atakymas turi būti raide.");
             } else {
-                answerChar = select.charAt(0);
+                answerChar = String.valueOf(select.charAt(0));
                 break;
             }
         }
         try {
-            examService.getAnswers().add(new Answer(examId, answerChar));
+            examService.getAnswers().add(new Answer<Integer, String>(examId, answerChar));
             mapper.writeValue(examFile, examService);
             System.out.println("Atsakymas pridetas.");
         } catch (IOException e) {

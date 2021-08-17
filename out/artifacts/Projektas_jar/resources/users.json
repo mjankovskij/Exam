@@ -8,4 +8,9 @@
   "id" : 1,
   "password" : "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
   "role" : 0
+}, {
+  "username" : "lolas",
+  "id" : 3,
+  "password" : "ba9df84a47f17b5d9b310e54a4b5f3724d0aeb56a07d7090125d6ab61167fdb8",
+  "role" : 0
 } ]
